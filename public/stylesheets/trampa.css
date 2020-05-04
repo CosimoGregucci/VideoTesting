@@ -1,0 +1,8 @@
+a-scene {
+        height: 300px;
+        width: 600px;
+}
+
+input[type=radio]{
+  width: auto;
+}

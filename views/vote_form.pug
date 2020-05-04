@@ -1,0 +1,45 @@
+extends layout
+
+block content
+	h1 #{title}
+	form(method='post' action='')
+		div
+		.row
+			strong.a A
+			span &emsp;
+			span.form-check.form-check-inline
+				input#-3.form-check-input(type='radio' name='vote' value='-3')
+				label.form-check-label(for='-3') &nbspMuch better &emsp;
+			
+			span.form-check.form-check-inline
+				input#-2.form-check-input(type='radio' name='vote' value='-2')
+				label.form-check-label(for='-2') &nbspBetter &emsp;
+			
+			span.form-check.form-check-inline
+				input#-1.form-check-input(type='radio' name='vote' value='-1')
+				label.form-check-label(for='-1') &nbspSlighly better &emsp;
+			
+			span.form-check.form-check-inline
+				input#0.form-check-input(type='radio' name='vote' value='0')
+				label.form-check-label(for='0') &nbspThe same &emsp;
+			
+			span.form-check.form-check-inline
+				input#1.form-check-input(type='radio' name='vote' value='1')
+				label.form-check-label(for='1') &nbspSlighly better &emsp;
+			
+			span.form-check.form-check-inline
+				input#2.form-check-input(type='radio' name='vote' value='2')
+				label.form-check-label(for='2') &nbspBetter &emsp;
+			
+			span.form-check.form-check-inline
+				input#3.form-check-input(type='radio' name='vote' value='3')
+				label.form-check-label(for='3') &nbspMuch better &emsp;
+			strong.a B     
+				span &emsp;
+				input.btn.btn-primary.btn-lg(type='submit' value='Submit')
+				
+	if errors 
+		ul
+			for error in errors
+				li!= error.msg
+

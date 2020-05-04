@@ -1,0 +1,40 @@
+extends layout
+
+block content
+	h1= title
+	h3 Video: #{videoName}
+	p This chart shows the average vote for the video "#{videoName}" among its modified versions
+	script(type='text/javascript' src='https://www.gstatic.com/charts/loader.js')
+	script(type='text/javascript').
+		google.charts.load('current', {'packages':['corechart']});
+		google.charts.setOnLoadCallback(drawChart);
+
+		function drawChart() {
+		n_video=2; //da prendere dal controller
+		var data = new google.visualization.DataTable();
+		data.addColumn('number');
+		data.addColumn('number');
+		var prova = [#{db_data}];
+		var res = [];
+		var i=0;
+		prova.forEach(myfunc);
+		function myfunc(item, index) {
+		res[i]=item;
+		i++;
+		}
+		for(var j=0;j<Object.keys(res).length;j++){
+			data.addRow([res[j+1],res[j]]);
+			j=j+1;
+		}
+		//data.addRow([item]);
+		var options = {
+			//title: '360 vs 360 optimized',
+			hAxis: {title: 'Vote', minValue: -3, maxValue: 3,format:'decimal'},
+			vAxis: {title: 'ClipVersion',ticks: [{v:0, f:"out_240"},{v:1, f:"out_480"},{v:2, f:"out_720"},{v:3, f:"out_1080"}]},
+			legend: 'none',
+			'height':600
+		};
+		var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+		chart.draw(data, options);
+		}
+	#chart_div

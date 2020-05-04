@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p You can choose one of the following video to test. 
+  p It will be asked to choose between 'Video A' and 'Video B' to define which is better than the other.
+  ul
+    - video_list.sort(function(a, b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+    each video in video_list
+      li 
+        a(href=video.url) #{video.name} 
+        |  (#{video.description})
+
+    else
+      li There are no videos.

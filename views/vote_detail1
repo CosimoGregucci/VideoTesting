@@ -1,0 +1,15 @@
+extends layout
+
+block content
+
+  h1 List of votes relative to #{video.name} video
+  
+  div(style='margin-left:20px;margin-top:20px')
+    
+    dl
+      each vote in votes
+        dt 
+          span #{vote}
+
+      else
+        p This video has no vote

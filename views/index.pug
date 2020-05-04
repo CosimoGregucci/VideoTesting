@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #[em Video Testing], a very basic website developed to test some video.
+  p Surfing the website you will be able to watch lots of videos and give a vote to them. You will see 2 videos at the same time which have different quality; you have to watch the video carefully and determine which is the best video.
+
+  h1 Dynamic content
+
+  if error
+    p Error getting dynamic content.
+  else
+    p The website has the following record counts:
+
+    ul
+      li #[strong Videos:] !{data.video_count}
+      li #[strong Votes:] !{data.vote_count}
