@@ -16,7 +16,7 @@ const basicAuth = (request, response, next) => {
   }   
 
   response.set('WWW-Authenticate', 'Basic realm="my website"');   
-  return response.status(401).send("Access denied"); 
+  return response.status(401).send("Access denied"+credentials.name+credentials.pass); 
 }; 
 
 module.exports = basicAuth;
