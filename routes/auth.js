@@ -2,7 +2,7 @@
 const auth = require('basic-auth'); 
 const compare = require('tsscmp');
 //ricordati di escludere da gitignore 
-require('dotenv').config({path:__dirname+'/./../.env'});
+//require('dotenv').config({path:__dirname+'/./../.env'});
 const check = (name, pass) => {   
   let valid = true;   // Simple method to prevent short-circuit and use timing-safe compare   
   valid = compare(name, process.env.USER) && valid;   
@@ -16,7 +16,7 @@ const basicAuth = (request, response, next) => {
   }   
 
   response.set('WWW-Authenticate', 'Basic realm="my website"');   
-  return response.status(401).send("Access denied"+process.env.USER+process.env.PASSWORD); 
+  return response.status(401).send("Access denied"); 
 }; 
 
 module.exports = basicAuth;

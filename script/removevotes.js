@@ -11,7 +11,7 @@ if (!userArgs[0].startsWith('mongodb')) {
 }
 */
 var async = require('async')
-var Vote = require('./models/vote')
+var Vote = require('../models/vote')
 var mongoose = require('mongoose');
 var mongoDB = userArgs[0];
 mongoose.connect(mongoDB, { useNewUrlParser: true });

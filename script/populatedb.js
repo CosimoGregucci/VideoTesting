@@ -11,8 +11,8 @@ if (!userArgs[0].startsWith('mongodb')) {
 }
 */
 var async = require('async')
-var Vote = require('./models/vote')
-var Video = require('./models/video')
+var Vote = require('../models/vote')
+var Video = require('../models/video')
 
 var mongoose = require('mongoose');
 var mongoDB = userArgs[0];

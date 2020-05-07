@@ -1,34 +1,38 @@
 extends layout
 
 block content
-	link(rel='stylesheet', href='/stylesheets/trampa.css')
+	link(rel='stylesheet', href='/stylesheets/video.css')
 	h1 Video: #{video.name}
 	p Watch carefully the two videos, and remember that since it's a 360 video you can look around!
 	p When you think you are ready to vote push on "Insert Vote".
-	div(style='position: absolute; left:100px; top: 270px;')
-		h1 VIDEO A
-	div(style='position: absolute; left:310px; top: 150px;')
-		a-scene#scene_1.ascene(debug='', embedded='', style='margin: auto', inspector='', keyboard-shortcuts='', screenshot='', vr-mode-ui='', device-orientation-permission-ui='')
-			a-assets
-				video#original-vid(autoplay='true', loop="true", width="640" height="360", crossorigin='anonymous', webkit-playsinline='')
-					source(src=videoA, type='video/mp4')
-			#container1
-			a-videosphere(src='#original-vid')
-			a-entity#camera1(camera='active: true', wasd-controls='', position='0 1.6 0', data-aframe-default-camera='')
-	div(style='position: absolute; left:100px; top: 590px;')
-		h1 VIDEO B	
-	div(style='position: absolute;left:310px; top: 470px;')
-		a-scene#scene_2.ascene(debug='', embedded='', style='margin: auto', inspector='', keyboard-shortcuts='', screenshot='', vr-mode-ui='', device-orientation-permission-ui='')
-			a-assets
-				video#240-vid(autoplay='true',loop="true", width="640" height="360", crossorigin='anonymous', webkit-playsinline='')
-					source(src=videoB, type='video/mp4')
-			#container2
-			a-entity#v2(visible='true')
-				a-videosphere(src='#240-vid')
-			a-entity#camera2(camera='active: true', wasd-controls='', position='0 1.6 0', data-aframe-default-camera='')
-	div(style='position: absolute; left:310px; top: 550px; display: none;')
-		a-scene#scene
-	div(style='position: absolute; left:520px; top: 800px;')
+	div.row
+		div.column
+			div(style="text-align:center;")
+				h1 VIDEO A
+			div
+				a-scene#scene_1.ascene(debug='', embedded='', style='margin: auto', inspector='', keyboard-shortcuts='', screenshot='', vr-mode-ui='', device-orientation-permission-ui='')
+					a-assets
+						video#original-vid(autoplay='true', loop="true", crossorigin='anonymous', webkit-playsinline='')
+							source(src=videoA, type='video/mp4')
+					#container1
+					a-videosphere(src='#original-vid')
+					a-entity#camera1(camera='active: true', wasd-controls='', position='0 1.6 0', data-aframe-default-camera='')
+			div(style='position: absolute; left:100px; top: 590px;')
+		div(style="text-align:center;")
+			h1 VIDEO B
+		div.column
+			div
+				a-scene#scene_2.ascene(debug='', embedded='', style='margin: auto', inspector='', keyboard-shortcuts='', screenshot='', vr-mode-ui='', device-orientation-permission-ui='')
+					a-assets
+						video#240-vid(autoplay='true',loop="true", crossorigin='anonymous', webkit-playsinline='')
+							source(src=videoB, type='video/mp4')
+					#container2
+					a-entity#v2(visible='true')
+						a-videosphere(src='#240-vid')
+					a-entity#camera2(camera='active: true', wasd-controls='', position='0 1.6 0', data-aframe-default-camera='')
+			div(style='position: absolute; left:510px; top: 550px; display: none;')
+				a-scene#scene
+	div(style='position: absolute; left:44.5%; top: 720px;')
 		a.btn.btn-primary.btn-lg(href='/catalog/'+video._id+'/vote/create/'+codVideo role='button') Insert new vote
-	div(style='position: absolute; left:520px; top: 840px;')
+	div(style='position: absolute; left:560px; top: 770px;')
 		br
